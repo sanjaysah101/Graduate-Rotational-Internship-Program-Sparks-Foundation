@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html {
+    font-size: 16px;
+    overflow-x: hidden;
+}
+body{
+    overflow-x: hidden;
+}
+
+/* a{
+    font-size: 16px;
+} */
+.container {
+    /* background-color:rebeccapurple ; */
+    width: 80vw;
+    margin: auto;
+}
+
+header {
+    /* width: 80vw; */
+    height: 600px;
+    background-image: linear-gradient(to bottom, rgba(20, 36, 0, 0.52), rgba(121, 9, 1, 0.73)),
+        url('https://wp.fxssi.com/wp-content/uploads/2021/12/poster-top-investment-banks.jpg');
+    background-size: cover;
+
+}
+
+nav {
+    width: 100vw;
+    /* background-color: rgb(235, 163, 163); */
+    /* border-bottom: 1px solid rgba(0, 0, 0, .3); */
+    box-shadow: 1px 2px rgba(0, 0, 0, .3);
+}
+
+.navbar {
+    height: 60px;
+    /* width: 100vw; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: rgb(238, 222, 222); */
+
+}
+
+#logo img {
+    height: 40px;
+}
+
+.navbarlist a {
+    margin: 1rem;
+    color: white;
+    font-weight: bolder;
+    font-size: 1.4rem;
+    /* transition: a .5s ease-in-out; */
+}
+
+/* .navbarlist a{
+    display: flex;
+    background-color: rgba(0, 0, 0, .3);
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+} */
+
+.navbarlist a:hover {
+    color: rgb(20, 36, 0);
+    border-bottom: 1px solid red;
+}
+
+.hero {
+    height: 100%;
+    /* background-color: red; */
+    display: grid;
+    place-items: center;
+}
+
+.content {
+    text-align: center;
+    /* background-color: aqua; */
+    line-height: 2.5rem;
+    color: white;
+}
+
+.grid-container {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 3rem;
+    /* background-color: #2196F3; */
+    /* padding: 10px; */
+}
+
+.grid-container>div {
+    background-color: rgba(33, 178, 74, 0.8);
+    text-align: center;
+    padding: 1.25rem;
+    font-size: 1.875rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.grid-container>div .icon-image {
+    margin: 2rem 0;
+    background-color: red;
+    border-radius: 50%;
+    height: 7.5rem;
+    width: 7.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-container>div .icon-image img {
+    height: 3.75rem;
+}
+
+/* .grid-container > div .text{
+    padding: 0 .5rem;
+    text-align: center;
+  } */
+.grid-container>div .text a {
+    color: black;
+    font-size: 1.65rem;
+}
+.hamburger{
+    display: none;
+    z-index: 999;
+}
+.fa-solid{
+    color: white;
+    font-size: 2rem;
+}
+
+
+@media only screen and (max-width: 800px) {
+    body {
+        background-color: lightblue;
+        font-size: 12px;
+    }
+
+    .container {
+        width: 90vw;
+    }
+
+    .grid-container {
+        gap: 1rem;
+    }
+
+    .grid-container>div {
+        padding: 1rem;
+    }
+
+    .navbarlist a {
+        font-size: 1.2rem;
+    }
+
+    .grid-container>div .text a {
+        font-size: 1.4rem;
+    }
+
+}
+
+@media only screen and (max-width: 980px) {
+    .grid-container{
+        grid-template-columns: auto auto;
+    }
+    header{
+        position: relative;
+    }
+    .hamburger{
+        display: block;
+    }
+    .navbarlist{
+        /* display: none; */
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(0, 0, 0, .8);
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        transform: translateX(100%);
+        transition: all 0.5s linear;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+    .navbarlist a{
+        margin: 10rem;
+        /* background-color: red; */
+        padding: 1rem;
+        font-size: 1.5rem;
+    }
+    .grid-container{
+        grid-template-columns: auto;
+    }
+    
+
+    .active{
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+   
+    .navbarlist a{
+        margin: 0;
+    }
+
+}
