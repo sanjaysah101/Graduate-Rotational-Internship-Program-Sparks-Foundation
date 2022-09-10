@@ -8,6 +8,7 @@
 html {
     font-size: 16px;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 body{
     overflow-x: hidden;
@@ -140,9 +141,129 @@ nav {
 }
 
 
+
+/* About Us */
+.title{
+    text-align: center;
+    margin: 1rem 0;
+    text-decoration:  underline wavy hotpink;
+    font-size: 1.5em;
+}
+#about{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    min-height: 400px;
+    background-color: #f6f6f6;
+    padding-top: 2rem;
+
+}
+.about{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;   
+    /* background-color: red;  */
+}
+.about .aboutme{
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+}
+.about .aboutme h2{
+    font-size: 2rem;
+    letter-spacing: .1rem;
+    margin-bottom: 1rem;
+}
+.about .aboutme h3{
+    letter-spacing: .1rem;
+    font-weight: 400;
+}
+.about .aboutme .socialMedia{
+    margin: 1rem 0;
+    /* background-color: red; */
+    
+}
+.about .aboutme .socialMedia i{
+    margin: .5rem;
+    color: black;
+    font-size: 2rem;
+}
+.about .aboutme .socialMedia i:hover{
+    color: orange;
+}
+
+.about .myImg{
+    background-image: url('https://avatars.githubusercontent.com/u/90146483?v=4');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 400px;
+    background-position-x: center;
+    border: 1rem solid orange;
+}
+
+/* contact Us */
+#contact{
+    margin-bottom: 2rem;
+    display: grid;
+    min-height: 400px;
+    background-color: #f6f6f6;
+    padding: 2rem;
+}
+
+.contactForm{
+    /* background-color: aqua; */
+}
+.form-field{
+    width: 100%;
+    /* background-color: red; */
+    margin: 2rem 0;
+}
+.form-field label{
+    display: block;
+    font-size: 2rem;
+    width: 100%;
+}
+.form-field input{
+    width: 100%;
+    padding: .5rem;
+    border: 0;
+    background-color: transparent;
+    border-bottom: 2px solid black;
+    outline: 0;
+}
+.form-field textarea{
+    width: 100%;
+    border: 2px solid black;
+    background-color: transparent;
+    resize: none;
+}
+.btn-container{
+    display: grid;
+    place-items: center;
+    /* background-color: red; */
+}
+.btn{
+    padding: .5rem 2rem;
+    background-color: orange;
+    outline: none;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.5em;
+    color: white;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
 @media only screen and (max-width: 800px) {
+    html{
+        font-size: 12px;
+    }
     body {
-        background-color: lightblue;
+        /* background-color: lightblue; */
         font-size: 12px;
     }
 
@@ -150,13 +271,13 @@ nav {
         width: 90vw;
     }
 
-    .grid-container {
+    /* .grid-container {
         gap: 1rem;
-    }
+    } */
 
-    .grid-container>div {
+    /* .grid-container>div {
         padding: 1rem;
-    }
+    } */
 
     .navbarlist a {
         font-size: 1.2rem;
@@ -165,7 +286,10 @@ nav {
     .grid-container>div .text a {
         font-size: 1.4rem;
     }
-
+    .about{
+        grid-template-columns: 1fr;
+    }
+    
 }
 
 @media only screen and (max-width: 980px) {
@@ -205,7 +329,7 @@ nav {
         font-size: 1.5rem;
     }
     .grid-container{
-        grid-template-columns: auto;
+        grid-template-columns: auto auto;
     }
     
 
@@ -220,4 +344,10 @@ nav {
         margin: 0;
     }
 
+}
+
+@media only screen and (max-width: 400px){
+    .grid-container{
+        grid-template-columns: auto;
+    }
 }
