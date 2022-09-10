@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    outline: none;
 }
 
 html {
@@ -247,6 +248,47 @@ nav {
     }
     
 }
+
+
+/* Customer Table */
+.tableContainer{
+    height: 400px;
+    overflow: scroll;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+.customerTable{
+    width: 100%;
+    max-height: 600px;
+}
+
+table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 10px;    
+}
+
+.customerTable thead{
+    background-color: black;
+    color: white;
+    font-size: 1.2rem;
+    /* position: absolute; */
+}
+tr:nth-child(even) {
+  background-color: #e1eed6;
+}
+
+.CustomerViewBtn{
+    padding: .3rem 2rem;
+    border-radius: 5px;
+    border: 1px solid orange;
+    background-color: orange;
+    cursor: pointer;
+    color: white;
+    font-size: 1.5rem;
+}
+
 
 @media only screen and (max-width: 980px) {
     .grid-container{
