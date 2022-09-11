@@ -61,7 +61,8 @@
                                 echo "<td>", $row['nationality'] , "</td>";
                                 echo "<td>", $row['email_id'] , "</td>";
                                 echo "<td>", $row['current_balance'] , "</td>";
-                                echo '<td> <button class ="CustomerViewBtn">view</button>';
+                                // echo '<td> <button class ="CustomerViewBtn" onlick="window.location=','CustomerProfile.php"','>view</button>';
+                                echo '<td> <a href="CustomerProfile.php?cid=',$row['cid'],'"> <button class ="CustomerViewBtn">view</button>', "</td>";
                                 echo "</tr>";
                             }
                         }

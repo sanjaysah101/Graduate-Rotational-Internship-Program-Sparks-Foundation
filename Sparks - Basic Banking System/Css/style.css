@@ -260,14 +260,14 @@ nav {
 
 /* Customer Table */
 .tableContainer{
-    max-height: 400px;
+    /* max-height: 400px; */
     overflow: scroll;
     margin-top: 2rem;
     margin-bottom: 4rem;
 }
 .customerTable{
     width: 100%;
-    max-height: 600px;
+    /* max-height: 600px; */
 }
 
 table, th, td{

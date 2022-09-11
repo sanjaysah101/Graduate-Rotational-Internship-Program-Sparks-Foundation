@@ -1,3 +1,9 @@
+<?php
+    require_once("db.php");
+    $sql = "select * from transactiondetails";
+    $result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,31 +18,14 @@
 </head>
 <body>
     <!-- <div class="container"> -->
-        <nav class="customerNav">
-            <div class="container navbar">
-                <div id="logo">
-                    <img src="img/logo.png" alt="Grip - Basic Banking System">
-                    <!-- logo -->
-                </div>
-                <div class="navbarlist">
-                    <a href="index.html">Home</a>
-                    <a href="#about">About Us</a>
-                    <a href="#contact">Contact Us</a>
-                </div>
-                
-                <div class="hamburger">
-                    <i class="fa-solid fa-bars" id="hamburgerIcon"></i>
-                </div>
-            </div>
-        </nav>
+        <?php include_once("nav2.php")?>
 
         <!-- Customer Table -->
-
+        
         <div class="tableContainer container ">
             <table border="1px" class="customerTable ">
                 <thead>
                     <tr>
-                        <th>S. No.</th>
                         <th>Transaction Id</th>
                         <th>Date</th>
                         <th>Sender's Name</th>
@@ -45,22 +34,30 @@
                         <th>Receipent's Account No</th>
                         <th>Transaction Amount</th>
                         <th>Message</th>
-                        <th>Status</th>
+                        <!-- <th>Status</th> -->
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>tran20021802sba</td>
-                        <td>11-09-2022</td>
-                        <td>Sanjay Kumar Sah</td>
-                        <td>Rahul Kumar Sah</td>
-                        <td>UBIN2116589</td>
-                        <td>UBIN2116590</td>
-                        <td>100</td>
-                        <td>gift</td>
-                        <td>success</td>
-                    </tr>
+
+                    <?php 
+                        if($result->num_rows){
+                            // print_r($result);
+                            while($row = $result->fetch_assoc()){
+                                echo "<tr>" ;
+                                echo "<td>", $row['tid'] , "</td>";
+                                echo "<td>", $row['tdate'] , "</td>";
+                                echo "<td>", $row['senderName'] , "</td>";
+                                echo "<td>", $row['recipientName'] , "</td>";
+                                echo "<td>", $row['senderAccNumber'] , "</td>";
+                                echo "<td>", $row['recipientAccNumber'] , "</td>";
+                                echo "<td>", $row['transactionAmt'] , "</td>";
+                                echo "<td>", $row['message'] , "</td>";
+                                // echo '<td> <button class ="CustomerViewBtn" onlick="window.location=','CustomerProfile.php"','>view</button>';
+                                // echo '<td> <a href="CustomerProfile.php?cid=',$row['cid'],'"> <button class ="CustomerViewBtn">view</button>', "</td>";
+                                echo "</tr>";
+                            }
+                        }
+                    ?>
                    
                 </tbody>
                 

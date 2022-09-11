@@ -1,3 +1,11 @@
+<?php 
+    $id = $_GET['cid'];
+    require_once("db.php");
+    $sql = "select * from customers where cid=$id";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,23 +22,7 @@
 </head>
 <body>
     <!-- <div class="container"> -->
-        <nav class="customerNav">
-            <div class="container navbar">
-                <div id="logo">
-                    <img src="img/logo.png" alt="Grip - Basic Banking System">
-                    <!-- logo -->
-                </div>
-                <div class="navbarlist">
-                    <a href="index.php">Home</a>
-                    <a href="./#about">About Us</a>
-                    <a href="./#contact">Contact Us</a>
-                </div>
-                
-                <div class="hamburger">
-                    <i class="fa-solid fa-bars" id="hamburgerIcon"></i>
-                </div>
-            </div>
-        </nav>
+        <?php include_once("nav2.php")?>
 
         <section class="container">
 
@@ -41,20 +33,20 @@
                 <div class="profileImg">
                     <img src="https://i0.wp.com/s3.zookti.com/nepalinames/blog/uploads/2021/05/Nepali-celebrities-who-changed-their-names.jpg?fit=720%2C720&quality=100&strip=all&ssl=1" alt="">
                     <div class="userDetails">
-                        <h2>Sanjay Kumar Sah</h2>
-                        <p>sanjay8797421521@gmail.com</p>
-                        <p>8797421521</p>
+                        <h2><?= $row['cname'] ?></h2>
+                        <p><?= $row['email_id'] ?></p>
+                        <!-- <p>8797421521</p> -->
                         <div class="accountDetails">
                             <div>
-                                <span><b>Account No.: </b> UM200AQ100020</span>
-                                <span><b>Balance:</b> Rs 1000</span> 
+                                <span><b>Account No.: </b> <?= $row['acc_number'] ?></span>
+                                <span><b>Balance:</b> Rs <?= $row['current_balance'] ?></span> 
                             </div>
                             <div>
                                 <span>
-                                    <b> Account Type: </b>Saving
+                                    <b> Account Type: </b><?= $row['acc_type'] ?>
                                 </span>
                                 <span>
-                                    <b>Nationality: </b>Indian
+                                    <b>Nationality: </b><?= $row['nationality'] ?>
                                 </span>
                             </div>
                         </div>
@@ -67,7 +59,8 @@
 
         <section class="transaction container">
             <div>
-                <button class="CustomerViewBtn" onclick="window.location='transferMoney.php'">Send Money</button>
+                <?php echo $id?>
+                <a href="TransferMoney.php?id=<?= $id?>"><button class="CustomerViewBtn">Send Money</button></a>
             </div>
             <div>
                 <button class="CustomerViewBtn" onclick="window.location='TransactionHistory.php'">Transaction History</button>

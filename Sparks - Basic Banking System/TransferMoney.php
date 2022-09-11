@@ -1,3 +1,60 @@
+<?php
+  require_once("db.php");
+    $message = isset($_GET['res'])?$_GET['res']:"";
+    $id = isset($_GET['id'])?$_GET['id']:"";
+    // echo $id;
+    // echo $message;
+    if(!($message == "")){
+        echo '<script>
+            alert("',$message,'");
+        </script>';
+    }
+    
+    $sql = "select * from customers";
+    if(!($id == "")){
+        $sql = "select * from customers where cid = $id";
+    }
+    $result = $conn->query($sql);
+    // print_r($result);
+    if($result->num_rows){
+        echo '<datalist id="senders-name-list">';
+            while($row = $result->fetch_assoc()){
+                
+                echo '<option value="',$row['cname'],'">';
+            }
+        
+        echo '</datalist>';
+    }
+    $result = $conn->query($sql);
+    if($result->num_rows){
+        echo '<datalist id="senders-accountNo-list">';
+            while($row = $result->fetch_assoc()){
+                echo '<option value="',$row['acc_number'],'">';
+            }
+        
+        echo '</datalist>';
+    }
+
+    $sql = "select * from customers";
+    $result = $conn->query($sql);
+    if($result->num_rows){
+        echo '<datalist id="recipient-name-list">';
+            while($row = $result->fetch_assoc()){
+                echo '<option value="',$row['cname'],'">';
+            }
+        
+        echo '</datalist>';
+    }
+    $result = $conn->query($sql);
+    if($result->num_rows){
+        echo '<datalist id="recipient-accountNo-list">';
+            while($row = $result->fetch_assoc()){
+                echo '<option value="',$row['acc_number'],'">';
+            }
+        
+        echo '</datalist>';
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,23 +72,8 @@
 
 <body>
     <!-- <div class="container"> -->
-    <nav class="customerNav">
-        <div class="container navbar">
-            <div id="logo">
-                <img src="img/logo.png" alt="Grip - Basic Banking System">
-                <!-- logo -->
-            </div>
-            <div class="navbarlist">
-                <a href="index.html">Home</a>
-                <a href="./#about">About Us</a>
-                <a href="./#contact">Contact Us</a>
-            </div>
+    <?php include_once("nav2.php")?>
 
-            <div class="hamburger">
-                <i class="fa-solid fa-bars" id="hamburgerIcon"></i>
-            </div>
-        </div>
-    </nav>
     <!-- Transfer form -->
     <section class="container">
         <form action="" method="post">
@@ -46,50 +88,24 @@
             <h2>Transfer Money</h2>
         </div>
         <div class="TransferMoneyForm">
-            <form action="">
+            <form action="validateTransferMoney.php" method="post">
                 <div class="form-field">
                     <label for="sendersName">Sender's Name:</label>
-                    <input list="senders-name-list" id="sendersName" name="sendersName" required />
-                    <datalist id="senders-name-list">
-                        <option value="Sanjay">
-                        <option value="Ramesh">
-                        <option value="Mint">
-                        <option value="Pinku">
-                        <option value="Vanilla">
-                    </datalist>
+                    <input list="senders-name-list" id="sendersName" name="sendersName" required />                    
                 </div>
                 <div class="form-field">
                     <label for="senderAccountNo">Sender's Account Number:</label>
                     <input list="senders-accountNo-list" id="senderAccountNo" name="senderAccountNo" required/>
-                    <datalist id="senders-accountNo-list">
-                        <option value="sanjay879742152187524800">
-                        <option value="Ramesh87524800">
-                        <option value="Mint87524800">
-                        <option value="Pinku87524800">
-                        <option value="Vanill87524800">
-                    </datalist>
                 </div>
                 <div class="form-field">
                     <label for="recipientsName">Recipient's Name:</label>
                     <input list="recipient-name-list" id="recipientsName" name="recipientsName" required/>
-                    <datalist id="recipient-name-list">
-                        <option value="Sanjay">
-                        <option value="Ramesh">
-                        <option value="Mint">
-                        <option value="Pinku">
-                        <option value="Vanilla">
-                    </datalist>
+                    
                 </div>
                 <div class="form-field">
                     <label for="recipientAccountNo">Recipient's Account Number:</label>
                     <input list="recipient-accountNo-list" id="recipientAccountNo" name="recipientAccountNo" required/>
-                    <datalist id="recipient-accountNo-list">
-                        <option value="sanjay879742152187524800">
-                        <option value="Ramesh87524800">
-                        <option value="Mint87524800">
-                        <option value="Pinku87524800">
-                        <option value="Vanill87524800">
-                    </datalist>
+                    
                 </div>
                 <div class="form-field">
                     <label for="amount">Amount</label>
