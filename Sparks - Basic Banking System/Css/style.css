@@ -53,7 +53,7 @@ nav {
 }
 
 .navbarlist a:hover {
-    color: rgb(20, 36, 0);
+    /* color: rgb(20, 36, 0); */
     border-bottom: 1px solid red;
 }
 
@@ -256,7 +256,7 @@ nav {
 
 /* Customer Table */
 .tableContainer{
-    height: 400px;
+    max-height: 400px;
     overflow: scroll;
     margin-top: 2rem;
     margin-bottom: 4rem;
@@ -271,6 +271,10 @@ table, th, td{
     border-collapse: collapse;
     text-align: center;
     padding: 10px;    
+}
+
+td:not(:first-child){
+    min-width: 150px;
 }
 
 .customerTable thead{

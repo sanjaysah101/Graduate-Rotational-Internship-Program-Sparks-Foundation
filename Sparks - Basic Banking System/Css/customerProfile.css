@@ -41,6 +41,10 @@
 }
 .transaction{
     height: 100px;
-    margin: 5rem 0;
-    /* background-color: #f6f6f6; */
+    margin-top: 5rem;
+    background-color: #f6f6f6;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
 }
