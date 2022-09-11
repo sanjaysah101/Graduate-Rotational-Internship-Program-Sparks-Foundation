@@ -14,24 +14,9 @@
 
 <body>
     <!-- <div class="container"> -->
-    <header>
-        <nav>
-            <div class="container navbar">
 
-                <div id="logo">
-                    <img src="img/logo.png" alt="Grip - Basic Banking System">
-                    <!-- logo -->
-                </div>
-                <div class="navbarlist">
-                    <a href="index.html">Home</a>
-                    <a href="#about">About Us</a>
-                    <a href="#contact">Contact Us</a>
-                </div>
-                <div class="hamburger">
-                    <i class="fa-solid fa-bars" id="hamburgerIcon"></i>
-                </div>
-            </div>
-        </nav>
+    <header>
+        <?php include_once("nav.php")?>
         <div class="hero">
             <div class="content">
                 <h2>Welcome to </h2>
@@ -40,6 +25,8 @@
             </div>
         </div>
     </header>
+
+
     <section>
         <!-- Important Options -->
 
@@ -49,7 +36,7 @@
                     <img src="img/male-customer.png" alt="Customers">
                 </div>
                 <div class="text">
-                    <a href="Customer.html">View all Customer</a>
+                    <a href="Customer.php">View all Customer</a>
                 </div>
             </div>
             <div>
@@ -58,7 +45,7 @@
 
                 </div>
                 <div class="text">
-                    <a href="TransferMoney.html">Transfer Money</a>
+                    <a href="TransferMoney.php">Transfer Money</a>
                 </div>
             </div>
             <div>
@@ -67,7 +54,7 @@
 
                 </div>
                 <div class="text">
-                    <a href="TransactionHistory.html">Transaction History</a>
+                    <a href="TransactionHistory.php">Transaction History</a>
                 </div>
             </div>
         </div>

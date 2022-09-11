@@ -65,8 +65,11 @@ nav {
 
 .content {
     text-align: center;
-    line-height: 2.5rem;
+    line-height: 2rem;
     color: white;
+}
+.content h2{
+    font-size: 1.2rem;
 }
 
 .customerNav{
@@ -112,6 +115,7 @@ nav {
 .hamburger{
     display: none;
     z-index: 999;
+    cursor: pointer;
 }
 .fa-solid{
     color: white;

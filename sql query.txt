@@ -1,0 +1,2 @@
+insert into transactiondetails(senderAccNumber, recipientAccNumber, senderName, recipientName, transactionAmt, message, cid) values ('SBBS20220911SAN1603', 'SBBS20220911BIB1609', 'Sanjay kumar Sah', 'Bibek Kumar Sah', 100, 'check transaction', '2');
+
